@@ -1,0 +1,31 @@
+<template>
+    <div class="search slds-grid slds-grid_vertical-align-end">
+        <lightning-input
+            class="slds-col slds-grow"
+            type="search"
+            variant="label-hidden"
+            label="City or coordinates"
+            placeholder="City name, or latitude, longitude (e.g. 43.2965, 5.3698)"
+            value={query}
+            onchange={handleChange}
+            onkeyup={handleKeyUp}
+            disabled={disabled}>
+        </lightning-input>
+        <lightning-button
+            class="slds-var-m-left_x-small"
+            variant="brand"
+            label="Search"
+            onclick={handleSearchClick}
+            disabled={disabled}>
+        </lightning-button>
+        <lightning-button-icon
+            class="slds-var-m-left_x-small"
+            icon-name="utility:location"
+            variant="border-filled"
+            alternative-text="Use my location"
+            title="Use my location"
+            onclick={handleLocateClick}
+            disabled={disabled}>
+        </lightning-button-icon>
+    </div>
+</template>

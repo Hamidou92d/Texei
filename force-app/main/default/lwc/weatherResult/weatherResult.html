@@ -1,0 +1,28 @@
+<template>
+    <div class="weather">
+        <div class="weather__head">
+            <span class="weather__icon" role="img" aria-label={weather.condition}>{icon}</span>
+            <div>
+                <div class="slds-text-heading_medium">{placeLabel}</div>
+                <div class="slds-text-color_weak">{weather.condition}</div>
+            </div>
+        </div>
+
+        <dl class="weather__metrics">
+            <div class="metric">
+                <dt><span aria-hidden="true">🌡️</span> Temperature</dt>
+                <dd>{temperatureLabel}</dd>
+            </div>
+            <div class="metric">
+                <dt><span aria-hidden="true">💧</span> Humidity</dt>
+                <dd>{humidityLabel}</dd>
+            </div>
+            <div class="metric">
+                <dt><span aria-hidden="true">💨</span> Wind speed</dt>
+                <dd>{windLabel}</dd>
+            </div>
+        </dl>
+
+        <p class="slds-text-body_small slds-text-color_weak">{stationLabel}</p>
+    </div>
+</template>

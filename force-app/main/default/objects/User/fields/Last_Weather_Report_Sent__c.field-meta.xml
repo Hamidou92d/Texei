@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Weather_Report_Sent__c</fullName>
+    <label>Last Weather Report Sent</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+    <description>Timestamp of the last weather report e-mailed from the weather widget.</description>
+</CustomField>

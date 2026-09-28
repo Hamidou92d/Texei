@@ -1,0 +1,28 @@
+.weather {
+    border-left: 4px solid #0176d3;
+    padding-left: 1rem;
+}
+.weather__head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.weather__icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+.weather__metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1rem 0 0.5rem;
+}
+.metric dt {
+    font-size: 0.75rem;
+    color: #5c5c5c;
+}
+.metric dd {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 0;
+}

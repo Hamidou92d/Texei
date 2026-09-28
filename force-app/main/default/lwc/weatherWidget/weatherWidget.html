@@ -1,0 +1,63 @@
+<template>
+    <lightning-card title="Weather" icon-name="standard:location">
+        <div class="slds-var-p-horizontal_medium">
+
+            <c-weather-search-bar
+                disabled={isBusy}
+                onsearch={handleSearch}
+                onlocate={handleUseMyLocation}>
+            </c-weather-search-bar>
+
+            <!-- Loading -->
+            <template lwc:if={isLoading}>
+                <div class="slds-is-relative slds-var-p-vertical_xx-large">
+                    <lightning-spinner alternative-text="Loading weather" size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Error -->
+            <template lwc:if={error}>
+                <div class="slds-var-m-top_medium slds-text-color_error" role="alert">
+                    <lightning-icon icon-name="utility:warning" size="x-small" variant="error" class="slds-var-m-right_x-small"></lightning-icon>
+                    {error}
+                </div>
+            </template>
+
+            <!-- Weather -->
+            <template lwc:if={weather}>
+                <div class="slds-var-m-top_medium">
+                    <c-weather-result weather={weather}></c-weather-result>
+                </div>
+            </template>
+
+            <!-- Empty state -->
+            <template lwc:if={showEmptyState}>
+                <p class="slds-var-m-top_medium slds-text-color_weak">
+                    Search for a city or coordinates, or use the location button.
+                </p>
+            </template>
+        </div>
+
+        <!-- Send report -->
+        <template lwc:if={canSend}>
+            <div slot="footer" class="slds-text-align_left">
+                <lightning-button
+                    variant="neutral"
+                    icon-name="utility:email"
+                    label={sendButtonLabel}
+                    onclick={handleSend}
+                    disabled={sendDisabled}>
+                </lightning-button>
+                <template lwc:if={isSending}>
+                    <lightning-spinner alternative-text="Sending" size="x-small"></lightning-spinner>
+                </template>
+                <template lwc:if={sendMessage}>
+                    <p class={sendMessageClass} role="status">{sendMessage}</p>
+                </template>
+                <template lwc:if={lastSentLabel}>
+                    <p class="slds-text-body_small slds-text-color_weak slds-var-m-top_xx-small">Last report sent: {lastSentLabel}</p>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>
